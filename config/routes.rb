@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  get 'home/:id', to: 'home#index'
-
+  match ':controller(/:action(/:id(/:format)))', :via => [:get, :post, :patch]
 
 end
