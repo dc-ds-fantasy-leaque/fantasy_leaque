@@ -1,0 +1,86 @@
+<%= render("header.html.erb") -%>
+
+	<div class="agileinfo-grap">
+		<div class="agileits-box">
+			<header class="agileits-box-header clearfix">
+					<h3><%= @resp[0].name -%></h3>
+			</header>
+			<hr>
+			<div class="agileits-box-body clearfix">
+				<div class="col-md-8">
+					Managed by : <b><%= @resp[0].manager_name -%></b><br>
+					Stadium : <b><%= @resp[0].stadium_name -%></b>
+				</div>
+				<div class="col-md-4">
+					<%= image_tag(@resp[0].logo, size: "120x150") -%>
+				</div>
+		
+				<br>
+				<hr>
+				<br>
+
+				<div class="agile-grids">
+				<!-- tables -->
+					<div class="agile-tables">
+						<div class="w3l-table-info">
+							<h3>Players</h3>
+				<% if (@resp[0].players.count > 0) -%>
+					<table id="table">
+						<thead>
+						  <tr>
+						  	<th>#</th>
+						  	<th>Photo</th>
+							<th>Name</th>
+							<th>Position</th>
+							<th>DOB</th>
+							<th>Nationality</th>
+							<th>Appearences</th>
+							<th>Goals</th>
+							<th>Assists</th>
+							<th>YC</th>
+							<th>RC</th>
+							<th>PC</th>
+							<th>PS</th>
+							<th>CS</th>
+							<th>Actions</th>
+						  </tr>
+						</thead>
+						<tbody>
+							<% count = 1 -%>
+							<% @resp[0].players.each do |player| -%>
+								<tr>
+									<td><%= count -%></td>
+									<td><%= image_tag(player.photo, size: "120x150") -%></td>
+									<td><%= player.name -%></td>
+									<td><%= player.position -%></td>
+									<td><%= player.date_of_birth -%></td>
+									<td><%= player.national_team -%></td>
+									<td><%= player.appearences -%></td>
+									<td><%= player.goals -%></td>
+									<td><%= player.assists -%></td>
+									<td><%= player.yellow_cards -%></td>
+									<td><%= player.red_cards-%></td>
+									<td><%= player.penalty_conceded -%></td>
+									<td><%= player.penalty_saved -%></td>
+									<td><%= player.clean_sheets -%></td>
+									<td>
+										<%= link_to "Edit Player", {:action => 'edit_player', :id => player.id}, class: "btn btn-primary" -%>
+										<%= link_to "Transfer", {:action => 'transfer_player', :id => player.id}, class: "btn btn-primary" -%>
+									</td>
+								</tr>
+								<%count += 1 -%>
+							<% end -%>
+						</tbody>
+					</table>
+				<% else -%>
+					No players found. <br>
+				<% end -%>
+				<br><%= link_to "Add Player", {:action => "new_player", :id => params[:id]}, :class => "btn btn-primary" -%>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<%= render("footer_sidebar.html.erb") -%>

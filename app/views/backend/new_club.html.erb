@@ -1,0 +1,60 @@
+<%= render("header.html.erb") -%>
+<div class="grid-form">
+	<div class="grid-form1">
+  		<div class="panel-body">
+					<form action="/backend/create_club" role="form" class="form-horizontal">
+						<div class="form-group">
+							<label class="col-md-2 control-label">Club Name</label>
+							<div class="col-md-8">
+								<div class="input-group">							
+									<span class="input-group-addon">
+										<i class="fa fa-envelope-o"></i>
+									</span>
+									<input name="name" type="text" class="form-control1" placeholder="Club Name">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Manager</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="manager_name" type="text" class="form-control1" id="exampleInputPassword1" placeholder="Manager Name">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Logo Image</label>
+							<div class="col-md-8">
+								<div class="input-group input-icon right">
+									<span class="input-group-addon">
+										<i class="fa fa-envelope-o"></i>
+									</span>
+									<input name="logo" class="form-control1" type="text" placeholder="Logo">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Stadium Name</label>
+							<div class="col-md-8">
+								<div class="input-group input-icon right">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="stadium_name" type="text" class="form-control1" placeholder="Stadium Name">
+								</div>
+							</div>
+							</div>
+
+						<div class="panel-footer">
+							<div class="col-sm-8 col-sm-offset-2">
+								<input type="submit" name="submit" value="Create" class="btn btn-primary">
+							</div>
+						</div>
+			</form>
+	</div>
+</div>
+
+<%= render("footer_sidebar.html.erb") -%>

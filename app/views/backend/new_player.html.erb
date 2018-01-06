@@ -1,0 +1,203 @@
+<%= render("header.html.erb") -%>
+<div class="grid-form">
+	<div class="grid-form1">
+  		<div class="panel-body">
+					<form action="/backend/create_player" role="form" class="form-horizontal">
+						<div class="form-group">
+							<label class="col-md-2 control-label">Player Name</label>
+							<div class="col-md-8">
+								<div class="input-group">							
+									<span class="input-group-addon">
+										<i class="fa fa-envelope-o"></i>
+									</span>
+									<input name="name" type="text" class="form-control1" placeholder="Player Name">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Photo</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="photo" type="text" class="form-control1" placeholder="Photo">
+								</div>
+							</div>
+						</div>
+						<input type="hidden" name="club_id" value="<%= params[:id] -%>">
+						<div class="form-group">
+							<label for="selector1" class="col-sm-2 control-label">Position</label>
+								<div class="col-sm-8">
+									<select name="position" id="selector1" class="form-control1">
+										<option>GoalKeeper</option>
+										<option>Defender</option>
+										<option>MidFielder</option>
+										<option>Forward</option>
+									</select>
+								</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Date Of Birth</label>
+							<div class="col-md-8">
+								<div class="input-group">							
+									<span class="input-group-addon">
+										<i class="fa fa-envelope-o"></i>
+									</span>
+									<input name="date_of_birth" type="date" class="form-control1">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">National Team</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="national_team" type="text" class="form-control1" placeholder="National team" min="0">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Appearences</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="appearences" type="number" class="form-control1" placeholder="Appearences" min="0">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Wins</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="wins" type="number" class="form-control1" placeholder="Wins" min="0">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Losses</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="Losses" type="number" class="form-control1" placeholder="Losses" min="0">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Draws</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="Draws" type="number" class="form-control1" placeholder="Draws" min="0">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">League Debut</label>
+							<div class="col-md-8">
+								<div class="input-group">							
+									<span class="input-group-addon">
+										<i class="fa fa-envelope-o"></i>
+									</span>
+									<input name="pl_debut" type="date" class="form-control1">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Goals</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="goals" type="number" class="form-control1" placeholder="Goals" min="0">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Assists</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="assists" type="number" class="form-control1" placeholder="Assists" min="0">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Yellow Cards</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="yellow_cards" type="number" class="form-control1" placeholder="Yellow Cards" min="0">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Red Cards</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="red_cards" type="number" class="form-control1" placeholder="Red Cards" min="0">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Penalty_conceded</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="penalty_conceded" type="number" class="form-control1" placeholder="Penalty Conceded" min="0">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Penalty Saved</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="penalty_saved" type="number" class="form-control1" placeholder="Penalty Saved" min="0">
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label">Clean Sheets</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="fa fa-key"></i>
+									</span>
+									<input name="clean_sheets" type="number" class="form-control1" placeholder="Clean Sheets" min="0">
+								</div>
+							</div>
+						</div>
+						<div class="panel-footer">
+							<div class="col-sm-8 col-sm-offset-2">
+								<input type="submit" name="submit" value="Create" class="btn btn-primary">
+							</div>
+						</div>
+			</form>
+	</div>
+</div>
+
+<%= render("footer_sidebar.html.erb") -%>

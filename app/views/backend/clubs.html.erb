@@ -1,0 +1,47 @@
+<%= render("header.html.erb") -%>
+
+<div class="agile-grids">
+				<!-- tables -->
+				<div class="agile-tables">
+					<div class="w3l-table-info">
+					  <h2>Clubs</h2>
+					  <% if(@resp[0].count > 0)
+								count = 1;
+							 -%>
+					    <table id="table">
+						<thead>
+						  <tr>
+						  	<th>#</th> <!--- Puta position later -->
+							<th>Name</th>
+							<th>Manager</th>
+							<th>Stadium Name</th>
+							<th>Logo</th>
+						  </tr>
+						</thead>
+						<tbody>
+							
+								<% @resp[0].each do |club| -%>
+								  <tr>
+									<td><%= count -%></td>
+									<td><a href="/backend/view_club/<%= club.id -%>"><%= club.name -%></a></td>
+									<td><%= club.manager_name -%></td>
+									<td><%= club.stadium_name -%></td>
+									<td><%= image_tag(club.logo, size: "120x150") -%></td>
+									
+									<% count += 1 %>
+								  </tr>
+								<% end -%>
+						</tbody>
+					  </table>
+					  <% else -%>
+					  No clubs found
+					  <% end -%>
+					  <br />
+					  <% if @resp[0].count < 21 -%>
+					  	<a href="/backend/new_club" class="btn btn-primary">Add Club</a>
+					  <% end -%>
+					</div>
+				  </div>
+			</div>
+<!-- script-for sticky-nav -->
+<%= render("footer_sidebar.html.erb") -%>
