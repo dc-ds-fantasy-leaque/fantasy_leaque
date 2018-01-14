@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171230172744) do
+ActiveRecord::Schema.define(version: 20180111125021) do
 
   create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "username", null: false
@@ -26,33 +26,28 @@ ActiveRecord::Schema.define(version: 20171230172744) do
     t.string "stadium_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["id"], name: "index_clubs_on_id"
   end
 
   create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name", null: false
     t.string "photo"
-    t.integer "club_id", null: false
+    t.bigint "club_id"
     t.string "position", null: false
     t.datetime "date_of_birth", null: false
     t.string "national_team", null: false
-    t.integer "appearences", default: 0
-    t.integer "wins", default: 0
-    t.integer "losses", default: 0
-    t.integer "draws", default: 0
-    t.datetime "pl_debut"
     t.integer "goals", default: 0
     t.integer "assists", default: 0
     t.integer "yellow_cards", default: 0
     t.integer "red_cards", default: 0
-    t.integer "penalty_conceded", default: 0
+    t.integer "penalty_missed", default: 0
     t.integer "penalty_saved", default: 0
     t.integer "clean_sheets", default: 0
-    t.integer "previous_club", default: 0
-    t.string "previous_club_info"
+    t.integer "total_minutes_played", default: 0
+    t.string "injury", default: "0"
+    t.integer "total_points", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["id"], name: "index_players_on_id"
+    t.index ["club_id"], name: "index_players_on_club_id"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -63,15 +58,22 @@ ActiveRecord::Schema.define(version: 20171230172744) do
     t.string "gender", null: false
     t.datetime "date_of_birth", null: false
     t.string "country", null: false
-    t.integer "club_id"
+    t.bigint "club_id"
     t.string "team_name"
-    t.decimal "budget", precision: 10
+    t.decimal "budget", precision: 10, default: "100"
     t.integer "rank"
-    t.integer "total_score"
+    t.integer "total_score", default: 0
+    t.integer "free_transfer", default: 1
+    t.integer "gameweek_joined"
+    t.string "wildcard", default: "1"
+    t.string "triple_captian", default: "1"
+    t.string "bench_boost", default: "1"
+    t.string "free_hit", default: "1"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["club_id"], name: "index_users_on_club_id"
-    t.index ["id"], name: "index_users_on_id"
   end
 
+  add_foreign_key "players", "clubs"
+  add_foreign_key "users", "clubs"
 end

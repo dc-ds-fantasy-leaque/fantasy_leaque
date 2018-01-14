@@ -34,14 +34,16 @@
 							<th>Position</th>
 							<th>DOB</th>
 							<th>Nationality</th>
-							<th>Appearences</th>
+							<th>Injury</th>
 							<th>Goals</th>
 							<th>Assists</th>
 							<th>YC</th>
 							<th>RC</th>
-							<th>PC</th>
+							<th>PM</th>
 							<th>PS</th>
 							<th>CS</th>
+							<th>Minutes Played</th>
+							<th>Total Points</th>
 							<th>Actions</th>
 						  </tr>
 						</thead>
@@ -55,14 +57,16 @@
 									<td><%= player.position -%></td>
 									<td><%= player.date_of_birth -%></td>
 									<td><%= player.national_team -%></td>
-									<td><%= player.appearences -%></td>
+									<td><%= player.injury -%></td>
 									<td><%= player.goals -%></td>
 									<td><%= player.assists -%></td>
 									<td><%= player.yellow_cards -%></td>
 									<td><%= player.red_cards-%></td>
-									<td><%= player.penalty_conceded -%></td>
+									<td><%= player.penalty_missed -%></td>
 									<td><%= player.penalty_saved -%></td>
 									<td><%= player.clean_sheets -%></td>
+									<td><%= player.minutes_played -%></td>
+									<td><%= player.total_points -%></td>
 									<td>
 										<%= link_to "Edit Player", {:action => 'edit_player', :id => player.id}, class: "btn btn-primary" -%>
 										<%= link_to "Transfer", {:action => 'transfer_player', :id => player.id}, class: "btn btn-primary" -%>

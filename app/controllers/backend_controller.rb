@@ -57,6 +57,14 @@ class BackendController < ActionController::Base
 		end
 	end
 
+	def edit_player
+		
+	end
+
+	def transfer_player
+		@resp[0] = Player.find(params[:id])
+	end
+
 	def new_club
 		@resp[0] = Club.new(club_params)
 	end
